@@ -31,8 +31,9 @@ class ProjectController extends Controller
         $project = null;
         $title = 'Nuovo Progetto';
         $btn = 'Aggiungi';
+        $types = Type::all();
 
-        return view('admin.projects.create-edit', compact('route', 'method', 'project', 'title','btn'));
+        return view('admin.projects.create-edit', compact('route', 'method', 'project', 'title','btn', 'types'));
     }
 
     /**
@@ -40,6 +41,7 @@ class ProjectController extends Controller
      */
     public function store(ProjectRequest $request)
     {
+
         $form_data = $request ->all();
         $exist = Project::where('title', $form_data['title'])->first();
         if($exist){
@@ -73,7 +75,8 @@ class ProjectController extends Controller
         $method = 'PUT';
         $title = 'Modifica un Progetto';
         $btn = 'Modifica';
-        return view('admin.projects.create-edit', compact('route', 'method', 'project', 'title', 'btn'));
+        $types = Type::all();
+        return view('admin.projects.create-edit', compact('route', 'method', 'project', 'title', 'btn', 'types'));
     }
 
     /**

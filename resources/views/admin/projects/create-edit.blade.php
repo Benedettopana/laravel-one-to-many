@@ -45,6 +45,28 @@
         </small>
         @enderror
       </div>
+
+      <div class="col mt-2">
+        <label for="type" class="form-label">Tipo</label>
+        <select name="type_id"
+        class="form-select"
+        aria-label="Default select example"
+        >
+
+        <option value="">Seleziona un tipo</option>
+            @foreach ($types as $type )
+            <option
+            value="{{$type->id}}"
+            @if(old('type_id', $project?->type->id) == $type->id ) selected  @endif>
+            {{$type->name}}
+            </option>
+
+            @endforeach
+        </select>
+
+    </div>
+
+
       <div class="col mt-2">
         <label for="desc">Descrizione</label>
         <textarea
