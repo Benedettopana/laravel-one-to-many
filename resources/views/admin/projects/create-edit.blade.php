@@ -28,23 +28,7 @@
         </small>
         @enderror
       </div>
-      <div class="col mt-2">
-        <label for="type">Tipo</label>
-        <input
-          type="text"
-          class="
-          form-control @error('type') is-invalid @enderror"
-          id="type"
-          name="type"
-          value="{{ old('project',$project?->type)}}"
-        >
-        @error('type')
-        <small class="text-danger">
-            {{$message}}
-        </small>
-        @enderror
 
-      </div>
       <div class="col mt-2">
         <label for="link">Link</label>
         <input

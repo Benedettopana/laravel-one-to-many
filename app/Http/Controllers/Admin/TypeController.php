@@ -23,11 +23,10 @@ class TypeController extends Controller
     }
 
     public function typeProjects(){
-        $projects = Project::paginate(12);
-        $projectsPagi = Project::all();
+
         $types = Type::all();
 
-        return view('admin.types.type-projects', compact('projects', 'types', 'projectsPagi'));
+        return view('admin.types.type-projects', compact( 'types'));
     }
     /**
      * Show the form for creating a new resource.

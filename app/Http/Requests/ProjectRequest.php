@@ -23,7 +23,7 @@ class ProjectRequest extends FormRequest
     {
         return [
             'title'=> 'required|min:3|max:50',
-            'type'=> 'max:20',
+
             'link'=> 'required|min:3|max:100',
         ];
     }
@@ -33,7 +33,7 @@ class ProjectRequest extends FormRequest
             'title.required' => 'Il titolo è obbligatorio',
             'title.min' => 'Il titolo deve contenere :min caratteri',
             'title.max' => 'Il titolo può contenere :max caratteri',
-            'type.max' => 'Il titolo può contenere :max caratteri',
+
             'link.required' => 'Il link è obbligatorio',
             'link.min' => 'Il link deve contenere :min caratteri',
             'link.max' => 'Il link può contenere :max caratteri',
