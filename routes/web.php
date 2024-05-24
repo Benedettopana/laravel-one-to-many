@@ -29,6 +29,7 @@ Route::middleware(['auth', 'verified'])
             Route::resource('project', ProjectController::class)->except('show');
             Route::resource('technology', TechnologyController::class);
             Route::resource('type', TypeController::class);
+            Route::get('type-project', [TypeController::class,'typeProjects'])->name('type_projects');
         });
 
 

@@ -18,6 +18,7 @@
     <div class="">
         <a href="{{ route('admin.project.create') }}" class="btn btn-success my-5"><i class="fa-solid fa-folder-plus"></i></a>
     </div>
+
     <table class="table">
       <thead>
         <tr>
@@ -72,7 +73,7 @@
       </tbody>
   </table>
   <div class="paginator">
-        {{$projects->links()}}
+        {{-- {{$projectsPagi->links()}} --}}
     </div>
 </div>
 

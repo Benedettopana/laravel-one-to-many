@@ -7,6 +7,9 @@ use App\Models\Type;
 use Illuminate\Http\Request;
 use App\Functions\Helper as Help;
 use App\Http\Requests\TypeRequest;
+use App\Models\Project;
+
+use function Ramsey\Uuid\v1;
 
 class TypeController extends Controller
 {
@@ -19,6 +22,13 @@ class TypeController extends Controller
         return view('admin.types.index', compact('types'));
     }
 
+    public function typeProjects(){
+        $projects = Project::paginate(12);
+        $projectsPagi = Project::all();
+        $types = Type::all();
+
+        return view('admin.types.type-projects', compact('projects', 'types', 'projectsPagi'));
+    }
     /**
      * Show the form for creating a new resource.
      */

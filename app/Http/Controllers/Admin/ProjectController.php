@@ -7,6 +7,7 @@ use App\Http\Requests\ProjectRequest;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use App\Functions\Helper as Help;
+use App\Models\Type;
 
 
 class ProjectController extends Controller
