@@ -30,7 +30,7 @@
         </tr>
       </thead>
       <tbody>
-          @foreach ($projects as $project )
+          @forelse ($projects as $project )
           <tr>
               <th scope="row">{{$project->title}}</th>
               <td>{{$project->type->name}}</td>
@@ -68,7 +68,9 @@
               </td>
 
           </tr>
-          @endforeach
+          @empty
+            <h4>Non ci sono progetti con quel nome</h4>
+          @endforelse
       </tbody>
   </table>
   <div class="paginator">

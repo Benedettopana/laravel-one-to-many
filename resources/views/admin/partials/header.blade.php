@@ -15,6 +15,12 @@
         </ul>
     </div>
     <div class="">
+        <form action="{{route('admin.project.index')}}" method="GET" class="d-flex me-3" role="search">
+            <input type="search" name="toSearch" class="form-control me-2" placeholder="Cerca" aria-label="search">
+            <button type="submit" class="btn btn-secondary "><i class="text-primary  fa-solid fa-circle-chevron-right"></i></button>
+        </form>
+    </div>
+    <div class="">
       <p class="fw-bolder mt-3 me-5 ">
           {{ Auth::user()->name }}
       </p>
