@@ -93,7 +93,11 @@ body {
     background-color: var(--bg);
     // overflow: hidden;
     & > div {
-        margin: 150px !important;
+        margin: 500px !important;
+    }
+
+    .container-xl {
+        margin-left: 200px !important;
     }
 }
 
