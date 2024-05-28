@@ -62,7 +62,10 @@ class ProjectController extends Controller
             $new_project->fill($form_data);
             $new_project->save();
 
-            if(array_key_exists(''))
+            if(array_key_exists('technologies', $form_data)){
+                $new_project->technologies()->attach($form_data['technologies']);
+            }
+
             //? Ridireziono
             return redirect()->route('admin.project.index')->with('success', 'Progetto aggiunto correttamente!');
         }
@@ -103,6 +106,12 @@ class ProjectController extends Controller
         }
 
         $project->update($form_data);
+
+        if(array_key_exists('technologies', $form_data)){
+            $project->technologies()->sync($form_data['technologies']);
+        }else{
+            $project->technologies()->detach();
+        }
         return redirect()->route('admin.project.index',$project);
     }
 

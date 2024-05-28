@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-<div class="container-xl ">
+<div class="container-xl  " style="margin-top: 150px !important">
     <h1 class="my-5">{{ $title }}</h1>
     {{-- messaggio di cancellazione avvenuta del progetto --}}
     @if(session('error'))
@@ -86,8 +86,23 @@
     <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
 
         @foreach ($technologies as $technology)
-            <input type="checkbox" class="btn-check" id="{{ $technology->id }}" autocomplete="off">
-            <label class="btn btn-outline-primary" for="{{ $technology->id }}">{{ $technology->name }}</label>
+            <input
+              type="checkbox"
+              class="btn-check"
+              id="technology_{{ $technology->id }}"
+              autocomplete="off"
+              name="technologies[]"
+              value="{{ $technology->id }}"
+              @if ($errors->any() && in_array($technology->id, old('technologies',[])) || !$errors->any() && $project?->technologies->contains($technology))
+                  checked
+              @endif
+            >
+            <label
+              class="btn btn-outline-primary"
+              for="technology_{{ $technology->id }}">
+                {{ $technology->name }}
+              </label
+            >
         @endforeach
     </div>
     </div>
