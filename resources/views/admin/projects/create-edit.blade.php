@@ -67,6 +67,7 @@
     </div>
 
 
+
       <div class="col mt-2">
         <label for="desc">Descrizione</label>
         <textarea
@@ -79,6 +80,16 @@
 
         {{-- <textarea type="textarea" class="form-control" id="desc" name="desc"></textarea> --}}
       </div>
+    </div>
+    <div class="col-12 mt-2">
+        <p>Seleziona una tecnologia</p>
+    <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
+
+        @foreach ($technologies as $technology)
+            <input type="checkbox" class="btn-check" id="{{ $technology->id }}" autocomplete="off">
+            <label class="btn btn-outline-primary" for="{{ $technology->id }}">{{ $technology->name }}</label>
+        @endforeach
+    </div>
     </div>
     <div class="mt-3">
         <button type="submit" class="btn btn-outline-success me-3">{{ $btn }}</button>

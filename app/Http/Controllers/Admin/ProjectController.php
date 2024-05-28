@@ -7,6 +7,7 @@ use App\Http\Requests\ProjectRequest;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use App\Functions\Helper as Help;
+use App\Models\Technology;
 use App\Models\Type;
 
 
@@ -38,8 +39,9 @@ class ProjectController extends Controller
         $title = 'Nuovo Progetto';
         $btn = 'Aggiungi';
         $types = Type::all();
+        $technologies = Technology::all();
 
-        return view('admin.projects.create-edit', compact('route', 'method', 'project', 'title','btn', 'types'));
+        return view('admin.projects.create-edit', compact('route', 'method', 'project', 'title','btn', 'types','technologies'));
     }
 
     /**
@@ -60,6 +62,7 @@ class ProjectController extends Controller
             $new_project->fill($form_data);
             $new_project->save();
 
+            if(array_key_exists(''))
             //? Ridireziono
             return redirect()->route('admin.project.index')->with('success', 'Progetto aggiunto correttamente!');
         }
@@ -67,9 +70,9 @@ class ProjectController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Project $project)
     {
-        //
+        return view('admin.projects.show', compact('project'));
     }
 
     /**
@@ -82,7 +85,8 @@ class ProjectController extends Controller
         $title = 'Modifica un Progetto';
         $btn = 'Modifica';
         $types = Type::all();
-        return view('admin.projects.create-edit', compact('route', 'method', 'project', 'title', 'btn', 'types'));
+        $technologies = Technology::all();
+        return view('admin.projects.create-edit', compact('route', 'method', 'project', 'title', 'btn', 'types', 'technologies'));
     }
 
     /**
